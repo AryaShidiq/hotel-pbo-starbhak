@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FasumController;
+use App\Http\Controllers\KamarController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,9 +31,14 @@ Route::get('/pesan', function () {
 // Route::get('/fasilitas', function () {
 //     return view('fasilitas');
 // });
-Route::get('/kamar', function () {
-    return view('kamar');
-});
+
+// kamar
+Route::get('/admin/kamar', [KamarController::class,'indexkamar']);
+Route::get('/admin/kamar/create', [KamarController::class,'createkamar']);
+Route::post('/admin/kamar/store', [KamarController::class,'storekamar']);
+Route::get('/admin/kamar/edit/{id}', [KamarController::class,'editkamar']);
+Route::put('/admin/kamar/update/{id}',[KamarController::class,'updatekamar']);
+Route::delete('/admin/kamar/delete/{id}',[KamarController::class,'deletekamar']);
 
 // Fasilitas umum
 Route::get('/admin/fasum', [FasumController::class,'indexfasum']);
