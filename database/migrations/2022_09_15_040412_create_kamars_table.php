@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('no_kamar');
             $table->string('tipe_kamar');
             $table->integer('jumlah');
+            $table->string('foto_kamar');
             $table->timestamps();
         });
     }
