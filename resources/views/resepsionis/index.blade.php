@@ -2,6 +2,13 @@
 
 @section('content')
 
+<div class="row mt-5 mb-5 d-flex justify-content-end">
+    <div class="col-md-4">
+        <a href="/resepsionis/pemesanan/create" class="btn btn-dark"> Tambah Data
+        </a>
+    </div>
+</div>
+
 <div class="row mt-5 mb-5">
     <div class="col-xl d-flex justify-content-center align-items-center">
         <div class="table-responsive">
@@ -20,9 +27,12 @@
                 <tbody>
                     @foreach($resepsionis as $resep)
                     <tr>
-                        <td class="text-bold-500">{{$resep->no_kamar}}</td>
-                        <td>{{$resep->tipe_kamar}}</td>
-                        <td>{{$resep->jumlah}}</td>
+                        <td class="text-bold-500">{{$resep->nomor_pemesanan}}</td>
+                        <td>{{$resep->nama_pemesan}}</td>
+                        <td>{{$resep->check_in}}</td>
+                        <td>{{$resep->check_out}}</td>
+                        <td>{{$resep->nomor_kamar}}</td>
+                        <td>{{$resep->status}}</td>
                         <td>
                             <div class="action d-flex justify-content-evenly" style="gap: 0.2rem;">
                                 <a href="/admin/kamar/edit/{{$resep->id}}" class="btn btn-warning">EDIT</a>
@@ -41,11 +51,6 @@
     </div>
 </div>
 
-<div class="row mt-5 mb-5 d-flex justify-content-end">
-    <div class="col-md-4">
-        <a href="/admin/kamar/create" class="btn btn-dark"> Tambah Data
-        </a>
-    </div>
-</div>
+
 
 @endsection

@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\FasumController;
 use App\Http\Controllers\KamarController;
-use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ResepsionisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +54,7 @@ Route::delete('/admin/fasum/delete/{id}',[FasumController::class,'deletefasum'])
 Route::get('/fasilitashotel', [UserController::class, 'indexuser']);
 
 
+// Resepsionis
+Route::get('/resepsionis/pemesanan', [ResepsionisController::class, 'indexresep']);
+Route::get('/resepsionis/pemesanan/create', [ResepsionisController::class, 'createresep']);
+Route::post('/resepsionis/pemesanan/store', [ResepsionisController::class, 'storeresep']);
