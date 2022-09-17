@@ -35,8 +35,8 @@
                         <td>{{$resep->status}}</td>
                         <td>
                             <div class="action d-flex justify-content-evenly" style="gap: 0.2rem;">
-                                <a href="/admin/kamar/edit/{{$resep->id}}" class="btn btn-warning">EDIT</a>
-                                | <form action="/admin/kamar/delete/{{$resep->id}}" method="POST">
+                                <a href="/resepsionis/pemesanan/edit/{{$resep->id}}" class="btn btn-warning">EDIT</a>
+                                | <form action="/resepsionis/pemesanan/delete/{{$resep->id}}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <input type="submit" value="delete" class="btn btn-danger">

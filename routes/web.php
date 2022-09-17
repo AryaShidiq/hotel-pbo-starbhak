@@ -58,3 +58,6 @@ Route::get('/fasilitashotel', [UserController::class, 'indexuser']);
 Route::get('/resepsionis/pemesanan', [ResepsionisController::class, 'indexresep']);
 Route::get('/resepsionis/pemesanan/create', [ResepsionisController::class, 'createresep']);
 Route::post('/resepsionis/pemesanan/store', [ResepsionisController::class, 'storeresep']);
+Route::get('/resepsionis/pemesanan/edit/{id}', [ResepsionisController::class, 'editresep']);
+Route::put('/resepsionis/pemesanan/update/{id}', [ResepsionisController::class, 'updateresep']);
+Route::delete('/resepsionis/pemesanan/delete/{id}', [ResepsionisController::class, 'deleteresep']); 
