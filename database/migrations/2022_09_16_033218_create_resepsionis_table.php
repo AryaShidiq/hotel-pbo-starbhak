@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('nama_pemesan');
             $table->date('check_in');
             $table->date('check_out');
+            $table->integer('nomor_kamar');
+            $table->string('status');
+            $table->timestamps();
         });
     }
 
