@@ -31,4 +31,26 @@ class ResepsionisController extends Controller
         $resepsionis = Resepsionis::create($request->all());
         return redirect('/resepsionis/pemesanan');
     }
+
+    public function editresep($id)
+    {
+
+        $resepsionis = Resepsionis::find($id);
+        return view('resepsionis.edit',compact('resepsionis'));
+    }
+
+    public function updateresep(Request $request,$id)
+    {
+        $resepsionis = Resepsionis::find($id);
+        $resepsionis->update($request->all());
+        return redirect('/resepsionis/pemesanan');
+
+    }
+
+    public function deleteresep($id)
+    {
+        $resepsionis = Resepsionis::find($id);
+        $resepsionis->delete();
+        return redirect('/resepsionis/pemesanan');
+    }
 }
