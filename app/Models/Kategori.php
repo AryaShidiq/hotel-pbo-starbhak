@@ -2,17 +2,18 @@
 
 namespace App\Models;
 
-use App\Models\Kategori;
+use App\Models\kamar;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class kamar extends Model
+class Kategori extends Model
 {
     use HasFactory;
     protected $guarded = [''];
 
-    public function Kategori()
+    public function kamar()
     {
-        return $this->belongsTo(Kategori::class);
+        return $this->hasMany(kamar::class);
     }
+
 }

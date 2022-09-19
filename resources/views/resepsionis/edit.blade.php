@@ -1,4 +1,4 @@
-@extends('layout.resepsionis')
+@extends('layout.admin')
 
 @section('content')
 <form method="POST" action="/resepsionis/pemesanan/update/{{$resepsionis->id}}" enctype="multipart/form-data">

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FasumController;
 use App\Http\Controllers\KamarController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ResepsionisController;
 
 /*
@@ -17,9 +18,7 @@ use App\Http\Controllers\ResepsionisController;
 |
 */
 
-Route::get('/', function () {
-    return view('user.index');
-});
+
 Route::get('/home', function () {
     return view('index');
 });
@@ -32,6 +31,14 @@ Route::get('/pesan', function () {
 // Route::get('/fasilitas', function () {
 //     return view('fasilitas');
 // });
+
+// kategori
+Route::get('/admin/kategori', [KategoriController::class, 'indexkategori']);
+Route::get('/admin/kategori/create', [KategoriController::class, 'createkategori']);
+Route::post('/admin/kategori/store', [KategoriController::class, 'storekategori']);
+Route::get('/admin/kategori/edit/{id}', [KategoriController::class, 'editkategori']);
+Route::put('/admin/kategori/update/{id}', [KategoriController::class, 'updatekategori']);
+Route::delete('/admin/kategori/delete/{id}', [KategoriController::class, 'deletekategori']);
 
 // kamar
 Route::get('/admin/kamar', [KamarController::class,'indexkamar']);
@@ -50,12 +57,16 @@ Route::put('/admin/fasum/update/{id}',[FasumController::class,'updatefasum']);
 Route::delete('/admin/fasum/delete/{id}',[FasumController::class,'deletefasum']);
 
 // User
+Route::get('/', function () {
+    return view('user.index');
+});
+Route::get('/fasilitashotel', [UserController::class, 'indexfasumuser']);
+Route::get('/kamar', [UserController::class, 'indexkamaruser']);
 
-Route::get('/fasilitashotel', [UserController::class, 'indexuser']);
 
 
 // Resepsionis
-Route::get('/resepsionis/pemesanan', [ResepsionisController::class, 'indexresep']);
+Route::get('/resepsionis', [ResepsionisController::class, 'indexresep']);
 Route::get('/resepsionis/pemesanan/create', [ResepsionisController::class, 'createresep']);
 Route::post('/resepsionis/pemesanan/store', [ResepsionisController::class, 'storeresep']);
 Route::get('/resepsionis/pemesanan/edit/{id}', [ResepsionisController::class, 'editresep']);

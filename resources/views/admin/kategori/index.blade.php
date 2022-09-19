@@ -8,26 +8,20 @@
             <table class="table mb-0">
                 <thead class="thead-dark">
                     <tr>
-                        <th class="text-center">No. kamar</th>
                         <th class="text-center">Tipe Kamar</th>
                         <th class="text-center">Jumlah</th>
-                        <th class="text-center">Foto</th>
                         <th class="text-center">ACTION</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($kamar as $mar)
+                    @foreach($kategori as $kat)
                     <tr>
-                        <td class="text-bold-500">{{$mar->no_kamar}}</td>
-                        <td>{{$mar->Kategori->tipe_kamar}}</td>
-                        <td>{{$mar->jumlah}}</td>
-                        <td>
-                            <img src="{{asset('fotokamar/'.$mar->foto_kamar)}}" alt="" width="200px">
-                        </td>
+                        <td class="text-bold-500">{{$kat->tipe_kamar}}</td>
+                        <td>{{$kat->jumlah}}</td>
                         <td>
                             <div class="action d-flex justify-content-evenly" style="gap: 0.2rem;">
-                                <a href="/admin/kamar/edit/{{$mar->id}}" class="btn btn-warning">EDIT</a>
-                                | <form action="/admin/kamar/delete/{{$mar->id}}" method="POST">
+                                <a href="/admin/kategori/edit/{{$kat->id}}" class="btn btn-warning">EDIT</a>
+                                | <form action="/admin/kategori/delete/{{$kat->id}}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <input type="submit" value="delete" class="btn btn-danger">
@@ -44,7 +38,7 @@
 
 <div class="row mt-5 mb-5 d-flex justify-content-end">
     <div class="col-md-4">
-        <a href="/admin/kamar/create" class="btn btn-dark"> Tambah Data
+        <a href="/admin/kategori/create" class="btn btn-dark"> Tambah Data
         </a>
     </div>
 </div>

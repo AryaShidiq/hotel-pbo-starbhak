@@ -58,13 +58,13 @@
                                     </a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="table.html" class='sidebar-link'>
+                                    <a href="/admin/kategori" class='sidebar-link'>
                                         <i class="bi bi-grid-1x2-fill"></i>
                                         <span>Tipe Kamar</span>
                                     </a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="table.html" class='sidebar-link'>
+                                    <a href="/resepsionis" class='sidebar-link'>
                                         <i class="bi bi-grid-1x2-fill"></i>
                                         <span>Pemesanan</span>
                                     </a>

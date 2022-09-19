@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kamar;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class KamarController extends Controller
@@ -15,15 +16,15 @@ class KamarController extends Controller
 
     public function createkamar()
     {
-        $kamar = kamar::all();
-        return view('admin.kamar.create',compact('kamar'));
+        $kategori = Kategori::all();
+        return view('admin.kamar.create',compact('kategori'));
     }
 
     public function storekamar(Request $request)
     {
         $this->validate($request,[
             'no_kamar' => 'required',
-            'tipe_kamar' => 'required',
+            'tipe_kamar_id' => 'required',
             'jumlah' => 'required',
             'foto_kamar' => 'required',
         ]);
@@ -40,7 +41,8 @@ class KamarController extends Controller
     {
 
         $kamar = kamar::find($id);
-        return view('admin.kamar.edit',compact('kamar'));
+        $kategori = Kategori::all();
+        return view('admin.kamar.edit',compact('kamar','kategori'));
     }
 
     public function updatekamar(Request $request,$id)

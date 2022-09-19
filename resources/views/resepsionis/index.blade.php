@@ -1,4 +1,4 @@
-@extends('layout.resepsionis')
+@extends('layout.admin')
 
 @section('content')
 
