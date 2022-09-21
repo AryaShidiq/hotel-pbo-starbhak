@@ -12,10 +12,12 @@ class FasumController extends Controller
         $fasum = FasilitasUmum::all();
         return view('admin.fasilitasumum.index',compact('fasum'));
     }
+
     public function createfasum()
     {
         return view('admin.fasilitasumum.create');
     }
+
     public function storefasum(Request $request)
     {
         $this->validate($request,[
@@ -31,11 +33,13 @@ class FasumController extends Controller
         }
         return redirect('/admin/fasum');
     }
+
     public function editfasum($id)
     {
         $fasum = FasilitasUmum::find($id);
         return view('admin.fasilitasumum.edit',compact('fasum'));
     }
+
     public function updatefasum(Request $request,$id)
     {
         $fasum = FasilitasUmum::find($id);
@@ -48,6 +52,7 @@ class FasumController extends Controller
         return redirect('/admin/fasum');
 
     }
+    
     public function deletefasum($id)
     {
         $fasum = FasilitasUmum::find($id);
