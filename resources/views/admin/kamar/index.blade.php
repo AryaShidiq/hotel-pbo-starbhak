@@ -19,7 +19,7 @@
                     @foreach($kamar as $mar)
                     <tr>
                         <td class="text-bold-500">{{$mar->no_kamar}}</td>
-                        <td>{{$mar->tipe}}</td>
+                        <td>{{$mar->kategori->tipe_kamar}}</td>
                         <td>{{$mar->jumlah}}</td>
                         <td>
                             <img src="{{asset('fotokamar/'.$mar->foto_kamar)}}" alt="" width="200px">

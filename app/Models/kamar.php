@@ -6,13 +6,15 @@ use App\Models\Kategori;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class kamar extends Model
+class Kamar extends Model
 {
     use HasFactory;
     protected $guarded = [''];
 
-    public function Kategori()
+    public function kategori()
     {
         return $this->belongsTo(Kategori::class);
+
     }
+
 }

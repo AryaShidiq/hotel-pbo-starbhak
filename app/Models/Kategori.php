@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\kamar;
+use App\Models\Kamar;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -13,7 +13,7 @@ class Kategori extends Model
 
     public function kamar()
     {
-        return $this->hasMany(kamar::class);
+        return $this->hasOne(Kamar::class);
     }
 
 }
