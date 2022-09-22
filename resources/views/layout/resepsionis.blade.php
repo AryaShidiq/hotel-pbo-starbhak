@@ -21,6 +21,7 @@
 </head>
 
 <body>
+@if (auth()->user()->role == 'resepsionis')
     <div id="app">
         <div id="sidebar" class="active">
             <div class="sidebar-wrapper active">
@@ -165,6 +166,7 @@
     <script src="/../assets/js/pages/dashboard.js"></script>
 
     <script src="/../assets/js/main.js"></script>
+    @endif
 </body>
 
 </html>
