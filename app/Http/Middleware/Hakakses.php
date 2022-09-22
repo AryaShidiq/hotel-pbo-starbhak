@@ -16,9 +16,17 @@ class Hakakses
      */
     public function handle(Request $request, Closure $next, ...$roles)
     {
-        if(in_array($request->user()->role, roles)){
+        if(in_array($request->user()->role, $roles)){
             return $next($request);
         }
         return redirect('/');
+        // if(in_array($request->admin()->role, $roles)){
+        //     return $next($request);
+        // }
+        // return redirect('/admin');
+        // if(in_array($request->resepsionis()->role, $roles)){
+        //     return $next($request);
+        // }
+        // return redirect('/resepsionis');
     }
 }

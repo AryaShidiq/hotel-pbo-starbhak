@@ -7,10 +7,26 @@ use Illuminate\Http\Request;
 
 class ResepsionisController extends Controller
 {
-    public function indexresep()
+    public function indexresep(Request $request)
     {
-        $resepsionis = Resepsionis::all();
-        return view('resepsionis.index',compact('resepsionis'));
+        $cari = $request->query('cari');
+
+        if(!empty($cari)){
+            $datapemesanan = Resepsionis::sortable()
+            ->where('resepsionis.nama_pemesan','like','%'.$cari.'%')
+            ->orWhere('resepsionis.check_in','like','%'.$cari.'%')
+            ->paginate(5)->onEachSide(4)->fragment('pemesanan');
+
+        }else{
+            $datapemesanan =Resepsionis::sortable()->paginate(5)->onEachSide(4)->fragment('pemesanan');
+        }
+
+        // $resepsionis = Resepsionis::sortable()->paginate(5)->onEachSide(4)->fragment('pemesanan');
+        // return view('resepsionis.index',compact('resepsionis'));
+        return view('resepsionis.index')->with([
+            'resepsionis' => $datapemesanan,
+            'cari' => $cari,
+        ]);
     }
 
     public function createresep()
@@ -28,8 +44,8 @@ class ResepsionisController extends Controller
             'nomor_kamar' => 'required',
             'status' => 'required',
         ]);
-        $resepsionis = Resepsionis::create($request->all());
-        return redirect('/resepsionis/pemesanan');
+        Resepsionis::create($request->all());
+        return redirect('/resepsionis');
     }
 
     public function editresep($id)

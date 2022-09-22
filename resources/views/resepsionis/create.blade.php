@@ -1,7 +1,7 @@
 @extends('layout.admin')
 
 @section('content')
-    <form method="POST" action="/resepsionis/pemesanan/store" enctype="multipart/form-data">
+    <form method="POST" action="/resepsionis/pemesanan/store">
         @csrf
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">No. Pemesanan</label>

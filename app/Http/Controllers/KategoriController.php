@@ -14,7 +14,7 @@ class KategoriController extends Controller
      */
     public function indexkategori()
     {
-        $kategori = Kategori::all();
+        $kategori = Kategori::paginate(5)->onEachSide(4)->fragment('kategori');
         return view('admin.kategori.index', compact('kategori'));
     }
 

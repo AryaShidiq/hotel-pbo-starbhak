@@ -15,7 +15,7 @@ class KamarController extends Controller
      */
     public function indexkamar()
     {
-        $kamar = Kamar::all();
+        $kamar = Kamar::paginate(5)->onEachSide(4)->fragment('kamar');
         return view('admin.kamar.index',compact('kamar'));
     }
 

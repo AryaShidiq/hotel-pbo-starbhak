@@ -44,88 +44,45 @@
                                 <span>Dashboard</span>
                             </a>
                         </li>
-
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-file-earmark-spreadsheet-fill"></i>
                                 <span>Database</span>
                             </a>
+                            
                             <ul class="submenu ">
+                                @if ( auth()->user()->role=="admin")
                                 <li class="submenu-item ">
                                     <a href="/admin/kamar" class='sidebar-link'>
                                         <i class="bi bi-grid-1x2-fill"></i>
                                         <span>Kamar</span>
                                     </a>
                                 </li>
+                                @endif
+                                @if ( auth()->user()->role=="admin")
                                 <li class="submenu-item ">
                                     <a href="/admin/kategori" class='sidebar-link'>
                                         <i class="bi bi-grid-1x2-fill"></i>
                                         <span>Tipe Kamar</span>
                                     </a>
                                 </li>
+                                @endif
+                                @if ( auth()->user()->role=="resepsionis")
                                 <li class="submenu-item ">
                                     <a href="/resepsionis" class='sidebar-link'>
                                         <i class="bi bi-grid-1x2-fill"></i>
                                         <span>Pemesanan</span>
                                     </a>
                                 </li>
+                                @endif
+                                @if ( auth()->user()->role=="admin")
                                 <li class="submenu-item ">
                                     <a href="/admin/fasum" class='sidebar-link'>
                                         <i class="bi bi-grid-1x2-fill"></i>
                                         <span>Fasilitas Umum</span>
                                     </a>
                                 </li>
-                            </ul>
-                        </li>
-
-                        <li class="sidebar-item  has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i class="bi bi-stack"></i>
-                                <span>Components</span>
-                            </a>
-                            <ul class="submenu ">
-                                <li class="submenu-item ">
-                                    <a href="component-alert.html">Alert</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="component-badge.html">Badge</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="component-breadcrumb.html">Breadcrumb</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="component-button.html">Button</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="component-card.html">Card</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="component-carousel.html">Carousel</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="component-dropdown.html">Dropdown</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="component-list-group.html">List Group</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="component-modal.html">Modal</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="component-navs.html">Navs</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="component-pagination.html">Pagination</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="component-progress.html">Progress</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="component-spinner.html">Spinner</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="component-tooltip.html">Tooltip</a>
-                                </li>
+                                @endif
                             </ul>
                         </li>
                             </ul>
@@ -142,8 +99,11 @@
                 </a>
             </header>
 
-            <div class="page-heading">
+            <div class="page-heading d-flex justify-content-around">
                 <h3>Profile Statistics</h3>
+                <p>{{ Auth::user()->name}}</p>
+                <p>Role : {{ Auth::user()->role }}</p>
+                <a href="/logout" class="btn btn-danger rounded-pill">Logout</a>
             </div>
             <div class="page-content">
                 <section class="row">

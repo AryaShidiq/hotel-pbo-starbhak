@@ -20,13 +20,14 @@ use App\Http\Controllers\ResepsionisController;
 |
 */
 
+// auth
 // login
 Route::get('/', [LoginController::class, 'index'])->name('login');
 
 Route::post('/', [LoginController::class, 'authenticate']);
 
 // logout
-Route::post('/logout', [LoginController::class, 'logout']);
+Route::get('/logout', [LoginController::class, 'logout']);
 
 // register
 Route::get('/register', [RegisterController::class, 'index']);
@@ -44,10 +45,23 @@ Route::get('/admin', function () {
 Route::get('/pesan', function () {
     return view('user.pemesanan');
 })->middleware('auth');
-// Route::get('/fasilitas', function () {
-//     return view('fasilitas');
-// });
+Route::get('/fasilitas', function () {
+    return view('fasilitas');
+});
 
+// Route::group(['middleware'=> ['auth','hakakses:resepsionis']],
+//     function()
+//     {
+//         Resepsionis
+//         Route::get('/resepsionis', [ResepsionisController::class, 'indexresep'])->middleware('auth');
+//         Route::get('/resepsionis/pemesanan/create', [ResepsionisController::class, 'createresep'])->middleware('auth');
+//         Route::post('/resepsionis/pemesanan/store', [ResepsionisController::class, 'storeresep'])->middleware('auth');
+//         Route::get('/resepsionis/pemesanan/edit/{id}', [ResepsionisController::class, 'editresep'])->middleware('auth');
+//         Route::put('/resepsionis/pemesanan/update/{id}', [ResepsionisController::class, 'updateresep'])->middleware('auth');
+//         Route::delete('/resepsionis/pemesanan/delete/{id}', [ResepsionisController::class, 'deleteresep'])->middleware('auth'); 
+//     }
+// );
+// admin
 // kategori
 Route::get('/admin/kategori', [KategoriController::class, 'indexkategori'])->middleware('auth');
 Route::get('/admin/kategori/create', [KategoriController::class, 'createkategori'])->middleware('auth');
