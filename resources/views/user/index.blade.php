@@ -173,7 +173,7 @@
 
     <section class="sectionbtn">
         <div class="btnpesan">
-            <a href="/tipekamar">
+            <a href="modal">
                 Pesan Sekarang
             </a>
         </div>
