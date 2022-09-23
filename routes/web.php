@@ -7,6 +7,7 @@ use App\Http\Controllers\KamarController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\ResepsionisController;
 
 /*
@@ -92,6 +93,7 @@ Route::get('/dashboard', function () {
 });
 Route::get('/fasilitashotel', [UserController::class, 'indexfasumuser'])->middleware('auth');
 Route::get('/kamar', [UserController::class, 'indexkamaruser'])->middleware('auth');
+Route::get('/tipekamar', [UserController::class, 'indextipekamaruser']);
 
 
 
@@ -102,3 +104,9 @@ Route::post('/resepsionis/pemesanan/store', [ResepsionisController::class, 'stor
 Route::get('/resepsionis/pemesanan/edit/{id}', [ResepsionisController::class, 'editresep'])->middleware('auth');
 Route::put('/resepsionis/pemesanan/update/{id}', [ResepsionisController::class, 'updateresep'])->middleware('auth');
 Route::delete('/resepsionis/pemesanan/delete/{id}', [ResepsionisController::class, 'deleteresep'])->middleware('auth'); 
+
+// view pemesanan user
+    Route::get('/pemesanan', [PemesananController::class, 'index'])->name('pemesanan');
+
+    Route::get('/tambahpemesanan',[PemesananController::class, 'tambahpemesanan'])->name('tambahpemesanan')->middleware('auth');
+    Route::post('/insertdataview',[PemesananController::class, 'insertpemesanan'])->name('insertpemesanan')->middleware('auth');

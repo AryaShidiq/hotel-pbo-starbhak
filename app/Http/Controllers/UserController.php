@@ -19,4 +19,10 @@ class UserController extends Controller
         $kamar_user = kamar::all();
         return view('user.kamar', compact('kamar_user'));
     }
+
+    function indextipekamaruser()
+    {
+        $tipekamar_user = kamar::all();
+        return view('user.tipekamar', compact('tipekamar_user'));
+    }
 }
