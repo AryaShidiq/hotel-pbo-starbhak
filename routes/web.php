@@ -88,13 +88,19 @@ Route::put('/admin/fasum/update/{id}',[FasumController::class,'updatefasum'])->m
 Route::delete('/admin/fasum/delete/{id}',[FasumController::class,'deletefasum'])->middleware('auth');
 
 // User
-Route::get('/dashboard', function () {
-    return view('user.index');
-});
-Route::get('/fasilitashotel', [UserController::class, 'indexfasumuser'])->middleware('auth');
-Route::get('/kamar', [UserController::class, 'indexkamaruser'])->middleware('auth');
-Route::get('/tipekamar', [UserController::class, 'indextipekamaruser']);
+// Route::get('/dashboard', function () {
+//     return view('user.index');
+// });
 
+// user
+Route::get('/dashboard',[PemesananController::class,'index']);
+
+Route::get('/fasilitashotel', [PemesananController::class, 'fasum'])->middleware('auth');
+Route::get('/kamar', [PemesananController::class, 'kamar'])->middleware('auth');
+Route::get('/tipekamar', [UserController::class, 'indextipekamaruser']);
+// view pemesanan user
+Route::get('/pemesanan', [PemesananController::class, 'index'])->name('pemesanan');
+Route::post('/tambahpemesanan',[PemesananController::class, 'insertpesan'])->middleware('auth');
 
 
 // Resepsionis
@@ -105,8 +111,3 @@ Route::get('/resepsionis/pemesanan/edit/{id}', [ResepsionisController::class, 'e
 Route::put('/resepsionis/pemesanan/update/{id}', [ResepsionisController::class, 'updateresep'])->middleware('auth');
 Route::delete('/resepsionis/pemesanan/delete/{id}', [ResepsionisController::class, 'deleteresep'])->middleware('auth'); 
 
-// view pemesanan user
-    Route::get('/pemesanan', [PemesananController::class, 'index'])->name('pemesanan');
-
-    Route::get('/tambahpemesanan',[PemesananController::class, 'tambahpemesanan'])->name('tambahpemesanan')->middleware('auth');
-    Route::post('/insertdataview',[PemesananController::class, 'insertpemesanan'])->name('insertpemesanan')->middleware('auth');

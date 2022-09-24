@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('no_kamar');
             $table->foreignId('tipe_kamar_id');
-            $table->integer('jumlah');
             $table->string('foto_kamar');
+            $table->string('harga');
             $table->timestamps();
         });
     }

@@ -15,8 +15,10 @@ class KamarController extends Controller
      */
     public function indexkamar()
     {
-        $kamar = Kamar::paginate(5)->onEachSide(4)->fragment('kamar');
-        return view('admin.kamar.index',compact('kamar'));
+        $kamar = Kamar::with('kategori')->paginate(5)->fragment('kamar');
+        // $kamar = Kamar::all();
+        $kategori = Kategori::all();
+        return view('admin.kamar.index',compact('kamar','kategori'));
     }
 
     /**
@@ -41,8 +43,8 @@ class KamarController extends Controller
         $this->validate($request,[
             'no_kamar' => 'required',
             'tipe_kamar_id' => 'required',
-            'jumlah' => 'required',
             'foto_kamar' => 'required',
+            'harga' => 'required',
         ]);
         $kamar = kamar::create($request->all());
         if($request->hasFile('foto_kamar')){

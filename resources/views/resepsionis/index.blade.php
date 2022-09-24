@@ -28,10 +28,12 @@
                         <th class="text-center">No.</th>
                         <th class="text-center">No. Pemesanan</th>
                         <th class="text-center">Nama Pemesan</th>
-                        <th class="text-center">Chek in</th>
-                        <th class="text-center">Chek Out</th>
+                        <th class="text-center">Check in</th>
+                        <th class="text-center">Check Out</th>
                         <th class="text-center">No. Kamar</th>
+                        <th class="text-center">Tipe Kamar</th>
                         <th class="text-center">Status</th>
+                        <th class="text-center">Total Harga</th>
                         <th class="text-center">ACTION</th>
                     </tr>
                 </thead>
@@ -41,13 +43,15 @@
                     @endphp
                     @foreach($resepsionis as $resep)
                     <tr>
-                        <td class="text-bold-500">{{$nomor++}}</td>
-                        <td class="text-bold-500">{{$resep->nomor_pemesanan}}</td>
-                        <td>{{$resep->nama_pemesan}}</td>
-                        <td>{{$resep->check_in}}</td>
-                        <td>{{$resep->check_out}}</td>
-                        <td>{{$resep->nomor_kamar}}</td>
-                        <td>{{$resep->status}}</td>
+                        <td class="text-bold-500 text-center">{{$nomor++}}</td>
+                        <td class="text-bold-500 text-center">{{$resep->nomor_pemesanan}}</td>
+                        <td class="text-center">{{$resep->nama_pemesan}}</td>
+                        <td class="text-center">{{$resep->check_in}}</td>
+                        <td class="text-center">{{$resep->check_out}}</td>
+                        <td class="text-center">{{$resep->nomor_kamar}}</td>
+                        <td class="text-center">{{$resep->kategori?->tipe_kamar}}</td>
+                        <td class="text-center">{{$resep->status}}</td>
+                        <td class="text-center">{{$resep->total_harga}}</td>
                         <td>
                             <div class="action d-flex justify-content-evenly" style="gap: 0.2rem;">
                                 <a href="/resepsionis/pemesanan/edit/{{$resep->id}}" class="btn btn-warning">EDIT</a>

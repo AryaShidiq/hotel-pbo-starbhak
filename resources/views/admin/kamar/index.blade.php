@@ -10,8 +10,8 @@
                     <tr>
                         <th class="text-center">No. kamar</th>
                         <th class="text-center">Tipe Kamar</th>
-                        <th class="text-center">Jumlah</th>
                         <th class="text-center">Foto</th>
+                        <th class="text-center">Harga</th>
                         <th class="text-center">ACTION</th>
                     </tr>
                 </thead>
@@ -19,11 +19,13 @@
                     @foreach($kamar as $mar)
                     <tr>
                         <td class="text-bold-500">{{$mar->no_kamar}}</td>
-                        <td>{{$mar->kategori?->tipe_kamar}}</td>
-                        <td>{{$mar->jumlah}}</td>
+                        <td>
+                            {{$mar->kategori?->tipe_kamar}}
+                        </td>
                         <td>
                             <img src="{{asset('fotokamar/'.$mar->foto_kamar)}}" alt="" width="200px">
                         </td>
+                        <td>{{$mar->harga}}</td>
                         <td>
                             <div class="action d-flex justify-content-evenly" style="gap: 0.2rem;">
                                 <a href="/admin/kamar/edit/{{$mar->id}}" class="btn btn-warning">EDIT</a>

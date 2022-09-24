@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use App\Models\Resepsionis;
 use Illuminate\Http\Request;
 
@@ -15,10 +16,10 @@ class ResepsionisController extends Controller
             $datapemesanan = Resepsionis::sortable()
             ->where('resepsionis.nama_pemesan','like','%'.$cari.'%')
             ->orWhere('resepsionis.check_in','like','%'.$cari.'%')
-            ->paginate(5)->onEachSide(4)->fragment('pemesanan');
+            ->orderBy('created_at','desc')->paginate(5)->onEachSide(4)->fragment('pemesanan');
 
         }else{
-            $datapemesanan =Resepsionis::sortable()->paginate(5)->onEachSide(4)->fragment('pemesanan');
+            $datapemesanan =Resepsionis::sortable()->orderBy('created_at','desc')->paginate(5)->onEachSide(4)->fragment('pemesanan');
         }
 
         // $resepsionis = Resepsionis::sortable()->paginate(5)->onEachSide(4)->fragment('pemesanan');
@@ -31,7 +32,8 @@ class ResepsionisController extends Controller
 
     public function createresep()
     {
-        return view('resepsionis.create');
+        $kategori = Kategori::all();
+        return view('resepsionis.create',compact('kategori'));
     }
 
     public function storeresep(Request $request)
@@ -41,7 +43,6 @@ class ResepsionisController extends Controller
             'nama_pemesan' => 'required',
             'check_in' => 'required',
             'check_out' => 'required',
-            'nomor_kamar' => 'required',
             'status' => 'required',
         ]);
         Resepsionis::create($request->all());
@@ -50,9 +51,9 @@ class ResepsionisController extends Controller
 
     public function editresep($id)
     {
-
         $resepsionis = Resepsionis::find($id);
-        return view('resepsionis.edit',compact('resepsionis'));
+        $kategori = Kategori::all();
+        return view('resepsionis.edit',compact('resepsionis','kategori'));
     }
 
     public function updateresep(Request $request,$id)

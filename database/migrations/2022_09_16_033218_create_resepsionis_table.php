@@ -15,12 +15,14 @@ return new class extends Migration
     {
         Schema::create('resepsionis', function (Blueprint $table) {
             $table->id();
-            $table->integer('nomor_pemesanan');
+            $table->integer('nomor_pemesanan')->nullable();
             $table->string('nama_pemesan');
+            $table->integer('nomor_kamar')->nullable();
+            $table->foreignId('tipe_kamar_id');
             $table->date('check_in');
             $table->date('check_out');
-            $table->integer('nomor_kamar');
-            $table->string('status');
+            $table->string('status')->nullable();
+            $table->string('total_harga')->nullable();
             $table->timestamps();
         });
     }
