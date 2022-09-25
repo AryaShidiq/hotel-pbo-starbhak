@@ -24,9 +24,11 @@ class ResepsionisController extends Controller
 
         // $resepsionis = Resepsionis::sortable()->paginate(5)->onEachSide(4)->fragment('pemesanan');
         // return view('resepsionis.index',compact('resepsionis'));
+        $kategori = Kategori::all();
         return view('resepsionis.index')->with([
             'resepsionis' => $datapemesanan,
             'cari' => $cari,
+            'kategori' => $kategori,
         ]);
     }
 
@@ -43,6 +45,7 @@ class ResepsionisController extends Controller
             'nama_pemesan' => 'required',
             'check_in' => 'required',
             'check_out' => 'required',
+            'kategori_id' => 'required',
             'status' => 'required',
         ]);
         Resepsionis::create($request->all());

@@ -16,7 +16,7 @@
                 <tbody>
                     @foreach($kategori as $kat)
                     <tr>
-                        <td class="text-bold-500">{{$kat->tipe_kamar}}</td>
+                        <td class="text-bold-500">{{{{$kat->kategori->tipe_kamar_id}}}}</td>
                         <td>{{$kat->jumlah}}</td>
                         <td>
                             <div class="action d-flex justify-content-evenly" style="gap: 0.2rem;">

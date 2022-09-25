@@ -8,19 +8,20 @@
             <table class="table mb-0">
                 <thead class="thead-dark">
                     <tr>
-                        <th class="text-center">No. kamar</th>
-                        <th class="text-center">Tipe Kamar</th>
-                        <th class="text-center">Foto</th>
-                        <th class="text-center">Harga</th>
-                        <th class="text-center">ACTION</th>
+                        <th class="text-center col">No. kamar</th>
+                        <th class="text-center col">Tipe Kamar</th>
+                        <th class="text-center col">Foto</th>
+                        <th class="text-center col">Harga</th>
+                        <th class="text-center col">ACTION</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($kamar as $mar)
+                    @foreach($kamar as  $mar)
+                    
                     <tr>
                         <td class="text-bold-500">{{$mar->no_kamar}}</td>
                         <td>
-                            {{$mar->kategori?->tipe_kamar}}
+                            {{$mar->kategori->tipe_kamar}}
                         </td>
                         <td>
                             <img src="{{asset('fotokamar/'.$mar->foto_kamar)}}" alt="" width="200px">
