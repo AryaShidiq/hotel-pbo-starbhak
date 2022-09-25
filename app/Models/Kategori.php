@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Kamar;
+use App\Models\kamar;
 use App\Models\Pemesanan;
 use App\Models\Resepsionis;
 use Illuminate\Database\Eloquent\Model;
@@ -15,7 +15,7 @@ class Kategori extends Model
 
     public function kamar()
     {
-        return $this->hasMany(Kamar::class);
+        return $this->hasMany(kamar::class);
     }
     public function resepsionis()
     {
