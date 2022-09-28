@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreign("kategori_id")->references('id')->on('kategoris');
             // $table->foreignId('tipe_kamar_id');
             $table->string('foto_kamar');
-            $table->string('harga');
+            // $table->string('harga');
             $table->timestamps();
         });
     }

@@ -30,7 +30,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                                <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/kamar">Kamar</a>
@@ -101,12 +101,12 @@
                             <label for="exampleInputEmail1" class="form-label">No. Kamar</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nomor_kamar">
                         </div> -->
-                        <select class="form-select form-select-lg mb-3 border border-primary" aria-label="form-select-lg example" name="tipe_kamar_id" id="tipe_kamar_id" style="width: 100%;">
+                        <select class="form-select form-select-lg mb-3 border border-primary" aria-label="form-select-lg example" name="kategori_id" id="kategori_id" style="width: 100%;">
                             <option selected>Pilih Tipe Kamar</option>
                             @foreach  ($kategori as $kat)
                             <option value="{{$kat->id}}">{{$kat->tipe_kamar}}</option>
                             @endforeach
-                            @error('tipe_kamar_id')
+                            @error('kategori_id')
                             <div class="text-danger">
                                 {{$message}}
                             </div>
@@ -155,7 +155,11 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    <!-- sweet alert -->
+    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+
     <!-- Option 2: Separate Popper and Bootstrap JS -->
+    @include('sweetalert::alert')
     <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>

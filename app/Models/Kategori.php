@@ -19,7 +19,7 @@ class Kategori extends Model
     }
     public function resepsionis()
     {
-        return $this->hasOne(Resepsionis::class);
+        return $this->hasMany(Resepsionis::class);
     }
     public function pemesanan()
     {

@@ -40,14 +40,14 @@ class ResepsionisController extends Controller
 
     public function storeresep(Request $request)
     {
-        $this->validate($request,[
-            'nomor_pemesanan' => 'required',
-            'nama_pemesan' => 'required',
-            'check_in' => 'required',
-            'check_out' => 'required',
-            'kategori_id' => 'required',
-            'status' => 'required',
-        ]);
+        // $this->validate($request,[
+        //     'nomor_pemesanan' => 'required',
+        //     'nama_pemesan' => 'required',
+        //     'check_in' => 'required',
+        //     'check_out' => 'required',
+        //     'kategori_id' => 'required',
+        //     'status' => 'required',
+        // ]);
         Resepsionis::create($request->all());
         return redirect('/resepsionis');
     }

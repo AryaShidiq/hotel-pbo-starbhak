@@ -22,10 +22,10 @@
             <label for="exampleInputEmail1" class="form-label">Nama Foto</label>
             <input type="file" class="form-control" name="foto_kamar" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Harga</label>
             <input type="text" class="form-control" name="harga" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
+        </div> -->
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 @endsection

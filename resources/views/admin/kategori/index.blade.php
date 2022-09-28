@@ -10,14 +10,18 @@
                     <tr>
                         <th class="text-center">Tipe Kamar</th>
                         <th class="text-center">Jumlah</th>
+                        <th class="text-center">Harga</th>
+                        <th class="text-center">Fasilitas</th>
                         <th class="text-center">ACTION</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($kategori as $kat)
                     <tr>
-                        <td class="text-bold-500">{{{{$kat->kategori->tipe_kamar_id}}}}</td>
+                        <td class="text-bold-500">{{$kat->tipe_kamar}}</td>
                         <td>{{$kat->jumlah}}</td>
+                        <td>{{$kat->harga}}</td>
+                        <td>{{$kat->fasilitas}}</td>
                         <td>
                             <div class="action d-flex justify-content-evenly" style="gap: 0.2rem;">
                                 <a href="/admin/kategori/edit/{{$kat->id}}" class="btn btn-warning">EDIT</a>

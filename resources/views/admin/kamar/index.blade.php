@@ -26,7 +26,7 @@
                         <td>
                             <img src="{{asset('fotokamar/'.$mar->foto_kamar)}}" alt="" width="200px">
                         </td>
-                        <td>{{$mar->harga}}</td>
+                        <td>{{$mar->kategori->harga}}</td>
                         <td>
                             <div class="action d-flex justify-content-evenly" style="gap: 0.2rem;">
                                 <a href="/admin/kamar/edit/{{$mar->id}}" class="btn btn-warning">EDIT</a>

@@ -49,6 +49,10 @@ Route::get('/pesan', function () {
 Route::get('/fasilitas', function () {
     return view('fasilitas');
 });
+Route::get('/testing',function ()
+{
+    return view('user.bukti-pdf'); 
+});
 
 // Route::group(['middleware'=> ['auth','hakakses:resepsionis']],
 //     function()
@@ -97,6 +101,7 @@ Route::get('/dashboard',[PemesananController::class,'index']);
 
 Route::get('/fasilitashotel', [PemesananController::class, 'fasum'])->middleware('auth');
 Route::get('/kamar', [PemesananController::class, 'kamar'])->middleware('auth');
+Route::get('/cetakbukti/{id}', [PemesananController::class, 'cetakbukti'])->middleware('auth');
 Route::get('/tipekamar', [UserController::class, 'indextipekamaruser']);
 // view pemesanan user
 Route::get('/pemesanan', [PemesananController::class, 'index'])->name('pemesanan');

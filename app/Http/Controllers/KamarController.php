@@ -46,7 +46,7 @@ class KamarController extends Controller
             'no_kamar' => 'required',
             'kategori_id' => 'required',
             'foto_kamar' => 'required',
-            'harga' => 'required',
+            // 'harga' => 'required',
         ]);
         $kamar = kamar::create($request->all());
         if($request->hasFile('foto_kamar')){

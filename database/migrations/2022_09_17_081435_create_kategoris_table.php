@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('tipe_kamar');
             $table->integer('jumlah');
+            $table->string('fasilitas');
+            $table->integer('harga');
             $table->timestamps();
         });
     }
