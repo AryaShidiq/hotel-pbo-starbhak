@@ -44,7 +44,7 @@ class PemesananController extends Controller
     }
     public function cetakbukti($id)
     {
-         $data = Resepsionis::all();
+        $data = Resepsionis::all();
         // $data = Resepsionis::find($id);
         // $kategori = Kategori::all();
         view()->share('data',$data);
