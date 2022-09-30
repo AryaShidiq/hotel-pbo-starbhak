@@ -42,6 +42,9 @@
                                 <a class="nav-link" href="/logout">Logout</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="/data-reservasi">Data Reservasi</a>
+                            </li>
+                            <li class="nav-item">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     Pesan Kamar
                                 </button>

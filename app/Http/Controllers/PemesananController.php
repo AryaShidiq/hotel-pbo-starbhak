@@ -6,8 +6,10 @@ use App\Models\FasilitasUmum;
 use App\Models\Kamar;
 use App\Models\Kategori;
 use App\Models\Resepsionis;
+use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 
@@ -41,6 +43,12 @@ class PemesananController extends Controller
         // return redirect('/dashboard');
         // return redirect('/dashboard')->alert()->html('<i>HTML</i> <u>example</u>'," You can use <b>bold text</b>, <a href='//github.com'>links</a> and other HTML tags ",'success');
         ;
+    }
+    public function dataresv($id)
+    {
+       $user = User::find($id);
+       $data = Resepsionis::where('user_id',$user->id)->paginte(5);
+       return view('user.reservasi', compact('data'));
     }
     public function cetakbukti($id)
     {

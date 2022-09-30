@@ -27,14 +27,12 @@
             </tr>
           </thead>
           <tbody>
-            @foreach($data as $d)
             <tr>
-              <td>{{$d->nama_pemesan}}</td>
-              <td>{{$d->check_in}}</td>
-              <td>{{$d->check_out}}</td>
-              <td>{{$d->kategori->tipe_kamar}}</td>
+              <td>{{$data->nama_pemesan}}</td>
+              <td>{{$data->check_in}}</td>
+              <td>{{$data->check_out}}</td>
+              <td>{{$data->kategori->tipe_kamar}}</td>
             </tr>
-            @endforeach
           </tbody>
         </table>
         </div>

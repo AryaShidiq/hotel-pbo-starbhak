@@ -105,6 +105,7 @@ Route::get('/cetakbukti/{id}', [PemesananController::class, 'cetakbukti'])->midd
 Route::get('/tipekamar', [UserController::class, 'indextipekamaruser']);
 // view pemesanan user
 Route::get('/pemesanan', [PemesananController::class, 'index'])->name('pemesanan');
+Route::get('/data-reservasi/{id}', [PemesananController::class, 'dataresv']);
 Route::post('/tambahpemesanan',[PemesananController::class, 'insertpesan'])->middleware('auth');
 
 
