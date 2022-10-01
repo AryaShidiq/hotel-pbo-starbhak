@@ -9,7 +9,7 @@
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="no_kamar" value="{{$kamar->no_kamar}}">
         </div>
         <select class="form-select form-select-lg mb-3 border border-primary" aria-label="form-select-lg example" name="tipe_kamar_id" id="tipe_kamar_id" style="width: 100%;">
-          <option selected>Pilih Tipe Kamar</option>
+          <option selected>{{$kamar->kategori->tipe_kamar}}</option>
           @foreach  ($kategori as $kat)
           <option value="{{$kat->id}}">{{$kat->tipe_kamar}}</option>
           @endforeach
@@ -19,10 +19,6 @@
           </div>
           @enderror
         </select>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Jumlah</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="jumlah">
-        </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Nama Foto</label>
             <input type="file" class="form-control" name="foto_kamar" id="exampleInputEmail1" aria-describedby="emailHelp">

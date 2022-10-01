@@ -6,26 +6,26 @@
     @csrf
     <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">No. Pemesanan</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nomor_pemesanan">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nomor_pemesanan" value="{{$resepsionis->nomor_pemesanan}}">
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Nama Pemesan</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nama_pemesan">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nama_pemesan" value="{{$resepsionis->nama_pemesan}}">
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Check In</label>
-            <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="check_in">
+            <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="check_in" value="{{$resepsionis->check_in}}">
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Check Out</label>
-            <input type="date" class="form-control" name="check_out" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="date" class="form-control" name="check_out" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$resepsionis->check_out}}">
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">No. Kamar</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nomor_kamar">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nomor_kamar" value="{{$resepsionis->nomo_kamar}}">
         </div>
         <select class="form-select form-select-lg mb-3 border border-primary" aria-label="form-select-lg example" name="kategori_id" id="kategori_id" style="width: 100%;">
-          <option selected>Pilih Tipe Kamar</option>
+          <option selected>{{$resepsionis->kategori->tipe_kamar}}</option>
           @foreach  ($kategori as $kat)
           <option value="{{$kat->id}}">{{$kat->tipe_kamar}}</option>
           @endforeach
@@ -42,7 +42,7 @@
         </select>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Total Harga</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="total_harga">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="total_harga" value="{{$resepsionis->total_harga}}">
         </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
