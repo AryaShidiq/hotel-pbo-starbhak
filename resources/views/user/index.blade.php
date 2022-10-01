@@ -38,9 +38,18 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/fasilitashotel">Fasilitas</a>
                             </li>
+                            @auth
                             <li class="nav-item">
+                                <!-- <a href="" class="nav-link">Login</a> -->
                                 <a class="nav-link" href="/logout">Logout</a>
                             </li>
+                            @endauth
+                            @guest
+                            <li class="nav-item">
+                                <a href="/login" class="nav-link">Login</a>
+                                <!-- <a class="nav-link" href="/logout">Logout</a> -->
+                            </li>
+                            @endguest
                             <li class="nav-item">
                                 <a class="nav-link" href="/data-reservasi">Data Reservasi</a>
                             </li>

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\Kategori;
 use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
@@ -20,5 +21,9 @@ class Resepsionis extends Model
     public function kategori()
     {
         return $this->belongsTo(Kategori::class);
+    }
+    public function addby()
+    {
+        return $this->belongsTo(User::class);
     }
 }

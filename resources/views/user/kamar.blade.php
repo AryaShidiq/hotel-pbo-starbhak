@@ -12,6 +12,7 @@
             <img src="{{asset('fotokamar/' .$ka->foto_kamar)}}" class="img-fluid" alt="" style="max-width: 350px;">
             <h5 class="pt-2">Tipe Kamar : {{$ka->kategori->tipe_kamar}}</h5>
             <h5 class="">Harga Permalam : {{$ka->kategori->harga}}</h5>
+            <p>Fasilitas : {{$ka->kategori->fasilitas}}</p>
         </div>
         @endforeach
     </div>

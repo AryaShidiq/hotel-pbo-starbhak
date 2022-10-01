@@ -13,7 +13,7 @@
   <body>
     
   <section class="d-flex justify-content-center align-items-center m-auto">
-    <div class="container-fluid mt-5 pt-5">
+    <div class="container-fluid mt-2 pt-2">
       <h5 class="text-center">Reservasi Hotel Bonvoy</h5>
       <div class="row d-flex justify-content-center align-items-center">
         <div class="col-md-8">
@@ -22,17 +22,19 @@
             <tr>
               <th scope="col">Nama Pemesan</th>
               <th scope="col">Tanggal Check in</th>
-              <th scope="col">Tanggal Check OUt</th>
+              <th scope="col">Tanggal Check Out</th>
               <th scope="col">Tipe Kamar</th>
             </tr>
           </thead>
           <tbody>
+            @foreach($data as $d)
             <tr>
-              <td>{{$data->nama_pemesan}}</td>
-              <td>{{$data->check_in}}</td>
-              <td>{{$data->check_out}}</td>
-              <td>{{$data->kategori->tipe_kamar}}</td>
+              <td>{{$d->nama_pemesan}}</td>
+              <td>{{$d->check_in}}</td>
+              <td>{{$d->check_out}}</td>
+              <td>{{$d->kategori->tipe_kamar}}</td>
             </tr>
+            @endforeach
           </tbody>
         </table>
         </div>

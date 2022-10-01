@@ -27,7 +27,7 @@ class LoginController extends Controller
             }else if (auth()->user()->role == 'resepsionis') {
                 return redirect ('/resepsionis');
             }else if (auth()->user()->role == 'user'){
-                return redirect ('/dashboard');
+                return redirect ('/');
             }else{
                 return redirect('/login');
             }   

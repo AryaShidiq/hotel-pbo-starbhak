@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kategori;
 use App\Models\Resepsionis;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ResepsionisController extends Controller
@@ -25,10 +26,12 @@ class ResepsionisController extends Controller
         // $resepsionis = Resepsionis::sortable()->paginate(5)->onEachSide(4)->fragment('pemesanan');
         // return view('resepsionis.index',compact('resepsionis'));
         $kategori = Kategori::all();
+        $user = User::all();
         return view('resepsionis.index')->with([
             'resepsionis' => $datapemesanan,
             'cari' => $cari,
             'kategori' => $kategori,
+            'user' => $user,
         ]);
     }
 
@@ -48,6 +51,9 @@ class ResepsionisController extends Controller
         //     'kategori_id' => 'required',
         //     'status' => 'required',
         // ]);
+        Resepsionis::creating(function($resepsionis){
+            $resepsionis->add_by = auth()->id();
+        });
         Resepsionis::create($request->all());
         return redirect('/resepsionis');
     }

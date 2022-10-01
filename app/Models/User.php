@@ -48,4 +48,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Pemesanan::class);
     }
+    public function resepsionis()
+    {
+        return $this->hasMany(Resepsionis::class);
+    }
 }

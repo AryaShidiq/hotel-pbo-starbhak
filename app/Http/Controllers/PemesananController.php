@@ -35,24 +35,43 @@ class PemesananController extends Controller
     public function fasum()
     {
         $fasum = FasilitasUmum::all();
-        return view('user.fasum', compact('fasum'));
+        $kategori = Kategori::all();
+        return view('user.fasum', compact('fasum','kategori'));
     }
     public function insertpesan(Request $request){
-        Resepsionis::create($request->all());   
-        return redirect('/dashboard')->with('success', 'Proses Booking Sukses! <br> <a href="/cetakbukti/{{id}}">Silahkan Download Bukti Reservasi</a> ');
+        // Resepsionis::create($request->all());
+        Resepsionis::creating(function($resepsionis){
+            $resepsionis->add_by = auth()->id();
+        });
+        Resepsionis::create($request->all());
+        // $resep['add_by'] = $resep->add_by->name;    
+        return redirect('/dashboard')->with('success', 'Proses Booking Sukses! <br> <a href="/data-reservasi">Silahkan Download Bukti Reservasi</a> ');
         // return redirect('/dashboard');
         // return redirect('/dashboard')->alert()->html('<i>HTML</i> <u>example</u>'," You can use <b>bold text</b>, <a href='//github.com'>links</a> and other HTML tags ",'success');
         ;
     }
-    public function dataresv($id)
+    // public function dataresv($id)
+    // {
+    //    $user = User::find($id);
+    //    $data = Resepsionis::where('user_id',$user->id)->paginte(5);
+    //    return view('user.reservasi', compact('data'));
+    // }
+    public function dataresv(Request $request)
     {
-       $user = User::find($id);
-       $data = Resepsionis::where('user_id',$user->id)->paginte(5);
-       return view('user.reservasi', compact('data'));
+    //    $user = Auth::user();
+        // $user = Auth::user()->id;
+        // var_dump($user);
+    //    $data = Resepsionis::where('add_by',$user);
+        $user = Auth::id();
+        $kategori = Kategori::all();
+        $data  = Resepsionis::where('add_by','=', $user)->get();
+        return view('user.reservasi', compact('data','kategori'));
     }
     public function cetakbukti($id)
     {
-        $data = Resepsionis::all();
+        $user = Auth::id();
+        $data = Resepsionis::find($id)->where('add_by','=', $user)->get();
+        // $data = Resepsionis::where('add_by','=', $user,'AND','id','=',$id)->get();
         // $data = Resepsionis::find($id);
         // $kategori = Kategori::all();
         view()->share('data',$data);

@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('resepsionis', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("add_by")->nullable();
+            $table->foreign("add_by")->references('id')->on('users')->nullable();
             $table->unsignedBigInteger("kategori_id");
             $table->foreign("kategori_id")->references('id')->on('kategoris');
             $table->integer('nomor_pemesanan')->nullable();
