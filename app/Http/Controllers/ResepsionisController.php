@@ -69,7 +69,7 @@ class ResepsionisController extends Controller
     {
         $resepsionis = Resepsionis::find($id);
         $resepsionis->update($request->all());
-        return redirect('/resepsionis/pemesanan');
+        return redirect('/resepsionis');
 
     }
 
@@ -77,6 +77,6 @@ class ResepsionisController extends Controller
     {
         $resepsionis = Resepsionis::find($id);
         $resepsionis->delete();
-        return redirect('/resepsionis/pemesanan');
+        return redirect('/resepsionis');
     }
 }
