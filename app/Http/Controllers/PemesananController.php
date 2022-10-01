@@ -45,7 +45,7 @@ class PemesananController extends Controller
         });
         Resepsionis::create($request->all());
         // $resep['add_by'] = $resep->add_by->name;    
-        return redirect('/dashboard')->with('success', 'Proses Booking Sukses! <br> <a href="/data-reservasi">Silahkan Download Bukti Reservasi</a> ');
+        return redirect('/')->with('success', 'Proses Booking Sukses! <br> <a href="/data-reservasi">Silahkan Download Bukti Reservasi</a> ');
         // return redirect('/dashboard');
         // return redirect('/dashboard')->alert()->html('<i>HTML</i> <u>example</u>'," You can use <b>bold text</b>, <a href='//github.com'>links</a> and other HTML tags ",'success');
         ;
